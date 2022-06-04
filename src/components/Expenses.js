@@ -1,6 +1,12 @@
 import ExpenseItem from "../components/ExpenseItem";
+import Card from "./Card";
+import "./Expenses.css";
 
 function Expenses(props) {
-  return <ExpenseItem expense={props.expenses[0]}></ExpenseItem>;
+  return (
+    <Card>
+      <ExpenseItem expense={props.expenses[0]}></ExpenseItem>
+    </Card>
+  );
 }
 export default Expenses;
