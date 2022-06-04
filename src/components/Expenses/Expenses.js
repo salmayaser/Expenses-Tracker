@@ -4,7 +4,7 @@ import "./Expenses.css";
 
 function Expenses(props) {
   return (
-    <Card>
+    <Card className="expenses">
       <ExpenseItem expense={props.expenses[0]}></ExpenseItem>
     </Card>
   );
