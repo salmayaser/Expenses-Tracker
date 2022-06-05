@@ -8,14 +8,16 @@ function Expenses(props) {
   const [filter, setFilter] = useState("");
   const filterChangedHandler = (selectedFilter) => {
     setFilter(selectedFilter);
-    console.log(filter);
   };
+  const expesesToShow = props.expenses.filter((expense) => {
+    return expense.date.getFullYear().toString() === filter;
+  });
   return (
     <div>
       <Card className="expenses">
         <ExpensesFilter onChangeFilter={filterChangedHandler}></ExpensesFilter>
-        {props.expenses.map((expense) => {
-          return <ExpenseItem expense={expense}></ExpenseItem>;
+        {expesesToShow.map((expense) => {
+          return <ExpenseItem expense={expense} key={expense.id}></ExpenseItem>;
         })}
       </Card>
     </div>
