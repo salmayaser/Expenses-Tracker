@@ -14,7 +14,9 @@ function Expenses(props) {
     <div>
       <Card className="expenses">
         <ExpensesFilter onChangeFilter={filterChangedHandler}></ExpensesFilter>
-        <ExpenseItem expense={props.expenses[0]}></ExpenseItem>
+        {props.expenses.map((expense) => {
+          return <ExpenseItem expense={expense}></ExpenseItem>;
+        })}
       </Card>
     </div>
   );
