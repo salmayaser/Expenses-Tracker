@@ -6,7 +6,7 @@ import ExpensesList from "./ExpensesList";
 import ExpensesChart from "./ExpensesChart";
 
 function Expenses(props) {
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState("2021");
   const filterChangedHandler = (selectedFilter) => {
     setFilter(selectedFilter);
   };
@@ -16,7 +16,10 @@ function Expenses(props) {
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter onChangeFilter={filterChangedHandler}></ExpensesFilter>
+        <ExpensesFilter
+          onChangeFilter={filterChangedHandler}
+          filter={filter}
+        ></ExpensesFilter>
         <ExpensesChart expenses={expensesToShow}></ExpensesChart>
         <ExpensesList expenses={expensesToShow}></ExpensesList>
       </Card>
